@@ -3,16 +3,18 @@ const nav = document.getElementById("nav");
 const themeBtn = document.getElementById("themeBtn");
 
 // Mobile Menu
-if (menuBtn) {
+if (menuBtn && nav) {
     menuBtn.addEventListener("click", () => {
         nav.classList.toggle("open");
     });
 }
 
 // Close menu after clicking a link
-document.querySelectorAll("nav a").forEach(link => {
+document.querySelectorAll(".navbar a").forEach(link => {
     link.addEventListener("click", () => {
-        nav.classList.remove("open");
+        if (nav) {
+            nav.classList.remove("open");
+        }
     });
 });
 
@@ -44,34 +46,42 @@ if (localStorage.getItem("theme") === "light") {
     }
 }
 
+if (typeof emailjs !== "undefined") {
 
-emailjs.init({
-    publicKey: "i9L9wzq39vVkpxmVW"
-});
-
-document.getElementById("contactForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-
-    const form = this;
-
-    const templateParams = {
-        name: form.querySelector('[name="name"]').value,
-        email: form.querySelector('[name="email"]').value,
-        subject: form.querySelector('[name="subject"]').value,
-        message: form.querySelector('[name="message"]').value
-    };
-
-    emailjs.send(
-        "service_g0lpu4c",
-        "template_uzv4wz9",
-        templateParams
-    )
-    .then(function() {
-        alert("Message sent successfully! ♡");
-        form.reset();
-    })
-    .catch(function(error) {
-        console.log("FULL EMAILJS ERROR:", error);
-        alert("EmailJS Error: " + JSON.stringify(error));
+    emailjs.init({
+        publicKey: "i9L9wzq39vVkpxmVW"
     });
-});
+
+    const contactForm = document.getElementById("contactForm");
+
+    if (contactForm) {
+
+        contactForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const form = this;
+
+            const templateParams = {
+                name: form.querySelector('[name="name"]').value,
+                email: form.querySelector('[name="email"]').value,
+                subject: form.querySelector('[name="subject"]').value,
+                message: form.querySelector('[name="message"]').value
+            };
+
+            emailjs.send(
+                "service_g0lpu4c",
+                "template_uzv4wz9",
+                templateParams
+            )
+            .then(function() {
+                alert("Message sent successfully! ♡");
+                form.reset();
+            })
+            .catch(function(error) {
+                console.log("FULL EMAILJS ERROR:", error);
+                alert("EmailJS Error: " + JSON.stringify(error));
+            });
+        });
+
+    }
+}

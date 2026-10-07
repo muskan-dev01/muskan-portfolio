@@ -502,29 +502,28 @@ form textarea:focus {
     }
 }
 
-@media (max-width: 550px) {
+@media (max-width: 850px) {
 
-    .skills-container,
-    .projects-container {
-        grid-template-columns: 1fr;
+    #menuBtn {
+        display: block;
     }
 
-    .page-title {
-        font-size: 35px;
-    }
-
-    .hero h1 {
-        font-size: 40px;
-    }
-
-    header {
-        padding: 18px 5%;
-    }
-
-    .page-section {
-        padding: 60px 5%;
+    .navbar {
+        position: absolute;
+        top: 79px;
+        left: 0;
+        width: 100%;
+        background: var(--card);
+        display: none;
+        flex-direction: column;
+        padding: 25px;
+        text-align: center;
+        gap: 25px;
     }
 }
+    .navbar.open {
+        display: flex;
+    }
 
 /* Navigation */
 .navbar {
@@ -552,3 +551,108 @@ form textarea:focus {
 .navbar a:active {
     color: #ff6ee6;
 }           
+
+@media (max-width: 850px) {
+
+    .navbar {
+        display: none !important;
+        position: absolute;
+        top: 79px;
+        left: 0;
+        width: 100%;
+        background: var(--card);
+        flex-direction: column;
+        padding: 25px;
+        text-align: center;
+        gap: 25px;
+    }
+
+    .navbar.open {
+        display: flex !important;
+    }
+
+    #menuBtn {
+        display: block;
+    }
+}
+
+/* MOBILE MENU FIX */
+@media (max-width: 850px) {
+
+    header .navbar {
+        display: none;
+        position: absolute;
+        top: 79px;
+        left: 0;
+        width: 100%;
+        background: var(--card);
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 25px;
+    }
+
+    header .navbar.open {
+        display: flex;
+    }
+
+    #menuBtn {
+        display: block;
+    }
+}
+
+/* NAVIGATION */
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-left: auto;
+}
+
+.navbar a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #ff6ee6;
+    text-shadow: 0 0 10px #ff6ee6;
+}
+
+.navbar a:active {
+    color: #ff6ee6;
+}
+
+
+/* MOBILE NAVIGATION */
+
+@media (max-width: 850px) {
+
+    .navbar {
+        display: none;
+        position: absolute;
+        top: 79px;
+        left: 0;
+        width: 100%;
+        background: var(--card);
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 25px;
+        margin-left: 0;
+    }
+
+    .navbar.open {
+        display: flex;
+    }
+
+    #menuBtn {
+        display: block;
+    }
+}
