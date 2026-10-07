@@ -1,0 +1,171 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #171321;
+    color: #f5efff;
+    padding: 35px;
+}
+
+/* Main Resume */
+
+.resume {
+    max-width: 850px;
+    margin: auto;
+    background: #211b2d;
+    padding: 50px;
+    border: 1px solid #3a304d;
+    border-radius: 20px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.35);
+}
+
+
+/* Header */
+
+.resume-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid #76528c;
+}
+
+.resume-header h1 {
+    font-size: 45px;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.resume-header h2 {
+    font-size: 16px;
+    font-weight: 500;
+    color: #c8a4df;
+}
+
+
+/* Contact */
+
+.contact {
+    text-align: right;
+    font-size: 13px;
+    line-height: 1.9;
+    color: #bcaeca;
+}
+
+
+/* Sections */
+
+section {
+    margin-top: 30px;
+}
+
+section h3 {
+    font-size: 16px;
+    color: #c99be8;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+
+    border-left: 4px solid #b875d6;
+    padding-left: 10px;
+}
+
+section p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #c5bbd0;
+}
+
+
+/* Skills */
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skills span {
+    padding: 8px 17px;
+    border-radius: 20px;
+
+    background: #30243d;
+    border: 1px solid #69477b;
+
+    color: #d4b3e8;
+    font-size: 13px;
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.skills span:hover {
+    background: #3b2b4b;
+    border-color: #a76ac5;
+}
+
+
+/* Projects */
+
+.project {
+    margin-bottom: 18px;
+    padding: 15px 18px;
+
+    background: #261f32;
+    border-radius: 12px;
+    border: 1px solid #3b3049;
+}
+
+.project h4 {
+    font-size: 15px;
+    color: #e3c8f0;
+    margin-bottom: 6px;
+}
+
+
+/* Print */
+
+@media print {
+
+    body {
+        background: white;
+        padding: 0;
+    }
+
+    .resume {
+        max-width: 100%;
+        box-shadow: none;
+        border: none;
+    }
+}
+
+
+/* Mobile */
+
+@media (max-width: 650px) {
+
+    body {
+        padding: 10px;
+    }
+
+    .resume {
+        padding: 30px 22px;
+        border-radius: 12px;
+    }
+
+    .resume-header {
+        flex-direction: column;
+    }
+
+    .contact {
+        text-align: left;
+    }
+
+    .resume-header h1 {
+        font-size: 36px;
+    }
+}
